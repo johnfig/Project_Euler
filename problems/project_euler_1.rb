@@ -4,4 +4,4 @@ total = 0
   total += i if (i%3 == 0 || i%5 == 0)
 end
 
-puts total 
+puts "Sum of numbers through 1000 divisible by three or five #{total}"
