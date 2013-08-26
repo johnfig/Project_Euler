@@ -8,7 +8,7 @@ def fibonnaci_1000
 		curr, succ = succ, curr + succ
 		puts curr.to_s.split('').count
 		x+=1
-		puts x
+		puts curr
 	end
 	puts x
 end
