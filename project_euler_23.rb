@@ -15,3 +15,77 @@
 
 # Find the sum of all the positive integers which cannot be written as 
 # the sum of two abundant numbers.
+
+def abundance
+	beginning = Time.now
+	# stores all abundant number
+	abundance_array = []
+	# stores all combinations of two abundant number sums
+	abundance_sum_array = []
+	# stores all integers that cannot be calculated by sum of two abundant numbers
+	non_abundance_array = []
+
+	# loop to find all abundant numbers and push into an array
+	x = 1
+	while x <= 28123
+		y = 1
+		total = 0
+		while  y < x
+			if x%y == 0
+				total = total + y
+			end
+			y+=1
+		end
+		if total > x
+			abundance_array << x
+		end
+		x+=1
+	end
+	p abundance_array.count
+
+	# loop to find all abudant number sums
+	number = 0
+	while number < abundance_array.count
+		abundance_array.each do |x|
+			sum = abundance_array[number] + x
+			if abundance_array[number] != x
+				abundance_sum_array << sum
+			end
+		end
+		number+=1
+	end
+	puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	puts 6965*6964
+	p abundance_sum_array.count 
+
+	# loop to find all numbers that cannot be found by adding 2 abundant numbers together
+	x = 1
+	while x <= 28123
+		if !abundance_sum_array.include?(x)
+			non_abundance_array << x
+		end
+		p x
+		x+=1
+	end
+
+	puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	p non_abundance_array.count
+
+	final_total = 0
+	non_abundance_array.each do |x|
+		total = total + x
+	end
+	puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	puts "The answer is: #{final_total}!"
+	puts "This algorithm took #{Time.now-beginning} seconds to run"
+end
+
+abundance
+
+
+# array = [1,2,3]
+# if array.include?(1)
+# 	puts "TRUE"
+# else
+# 	puts "FALSE"
+# end
