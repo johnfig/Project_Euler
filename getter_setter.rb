@@ -62,3 +62,14 @@ p triathlete.event
 triathlete.event = "Swimming"
 p triathlete.event
 
+
+class NoInitialize
+	attr_accessor :name, :favorite_color
+end
+
+me = NoInitialize.new
+me.name = "John Fig"
+me.favorite_color = "Blue"
+
+p me.name
+p me.favorite_color
